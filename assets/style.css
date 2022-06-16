@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 10px;
+    margin: 5px;
+  
+}
+
+header ul {
+    font-size: 25px;
+    margin: 5px;
+    padding: 10px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    
+}
+
+header ul li {
+    padding: 5 px 5px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.intro-text p {
+    text-align: center;
+}
+
+.intro-text h1 {
+    text-align: center;
+}
+
+.start-quiz {
+    text-align: center;
+}
