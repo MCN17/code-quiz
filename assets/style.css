@@ -58,7 +58,7 @@ button {
     border-radius: 25px;
 }
 
-.btn:hover {
+.quiz-button:hover {
     background-color: darkgray;
 }
 
