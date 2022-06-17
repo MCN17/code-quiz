@@ -4,9 +4,14 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: lightgray;
+}
+
 header {
     padding: 10px;
     margin: 5px;
+     background-color: darkgray;
   
 }
 
@@ -33,12 +38,30 @@ main {
 
 .intro-text p {
     text-align: center;
+    font-size: 20px;
 }
 
 .intro-text h1 {
     text-align: center;
+    font-size: 35px;
 }
 
 .start-quiz {
     text-align: center;
+}
+
+button {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px;
+    border: solid 2px black;
+    border-radius: 25px;
+}
+
+.btn:hover {
+    background-color: darkgray;
+}
+
+.high-scores:hover {
+    background-color: lightgray;
 }
