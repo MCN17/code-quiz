@@ -25,3 +25,16 @@ var quizQuestions = [
         Answer: "True"
     }
 ];
+
+// Buttons
+var highScoresButtonEl = document.querySelector(".high-scores");
+var quizbuttonEl = document.querySelector(".quiz-button");
+
+var introTextEl = document.querySelector(".intro-text");
+var questionsEl = document.querySelector(".questions");
+var answersEl = document.querySelector(".answers");
+
+
+
+
+

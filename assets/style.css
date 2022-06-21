@@ -62,3 +62,7 @@ button {
 .high-scores:hover {
     background-color: lightgray;
 }
+
+.quiz-content {
+    text-align: center;
+}
