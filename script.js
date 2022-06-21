@@ -28,13 +28,46 @@ var quizQuestions = [
 
 // Buttons
 var highScoresButtonEl = document.querySelector(".high-scores");
-var quizbuttonEl = document.querySelector(".quiz-button");
+var quizButtonEl = document.querySelector(".quiz-button");
 
 var introTextEl = document.querySelector(".intro-text");
 var questionsEl = document.querySelector(".questions");
-var answersEl = document.querySelector(".answers");
+var choicesEl = document.querySelector(".choices");
+var timerEl = document.querySelector(".timer");
+
+quizButtonEl.addEventListener("click", function() {
+    document.querySelector(".intro-text").style.visibility = "hidden";
+    startTimer();
+    displayQuestions();
+    displayChoices();
+    
+})
 
 
+function displayQuestions () {
+    questionsEl.textContent = quizQuestions[0].question;
+}
+
+function displayChoices () {
+
+    choicesListEl.textContent = quizQuestions[0].choices;
+
+}
 
 
+var choicesListEl = document.createElement("ul");
+    choicesListEl.setAttribute("class", "choices");
+    choicesEl.appendChild(choicesListEl);
 
+var startTime = 75;
+var quizTime;
+secondsElapsed = 0;
+
+function startTimer() {
+    timerEl.textContent = startTime;
+    quizTime = setInterval(function () {
+        secondsElapsed++;
+        timerEl.textContent = startTime - secondsElapsed;
+        
+    }, 1000);
+}
