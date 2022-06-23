@@ -66,3 +66,26 @@ button {
 .quiz-content {
     text-align: center;
 }
+
+.choices ul li {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px;
+    border: solid 2px black;
+    border-radius: 25px;
+}
+
+.choices ul li:hover {
+    background-color: darkgray;
+}
+
+.questions {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.answer p {
+    font-size: 25px;
+    font-weight: bold;
+    background-color: darkgray;
+}
