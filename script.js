@@ -58,8 +58,9 @@ startQuizEl.addEventListener("click", function() {
 
 // })
 
-choicesButtonEl.addEventListener("click", displayAnswer)
 
+
+choicesButtonEl.addEventListener("click", displayAnswer);
 
 
 // Incriments each question in the array of objects.
@@ -71,7 +72,6 @@ function displayQuestions () {
 
 // Turns the choices from the array into an unordered list
 function displayChoices () {
-
     for (i = 0; i < quizQuestions[q].choices.length; i++){
         var li = document.createElement("li");
         li.textContent = quizQuestions[q].choices[i];
@@ -80,23 +80,52 @@ function displayChoices () {
         
     }
     q++;
+
 }
 
 // Takes answer from the array of objects and places it as a paragraph below the unordered list of choices.
  function displayAnswer (event) {
     console.log(event.target.textContent)
     var p = document.createElement("p");
-    if (quizQuestions[q].answer === event.target.textContent) {
+    if (quizQuestions[0].answer === event.target.textContent) {
         p.textContent = "Correct"
     } else {
         p.textContent = "Incorrect";
     }
-    
-    
     p.id = i
     answerEl.appendChild(p);
-    displayQuestions();
+
+    setTimeout (function () {
+        removeChoices();
+        displayQuestions();
+    }, 2000);
+
+    
+
+    
  }
+
+ // Removes last set of choices/display of "Correct/Incorrect"
+
+ function removeChoices () {
+    var choicesEl = document.querySelector(".choices");
+    choicesEl.remove();
+    removeAnswer();
+
+ }
+
+
+ // Removes display of "Correct/Incorrect" from last question
+ function removeAnswer () {
+    var answerEl = document.querySelector(".answer")
+    answerEl.remove();
+ }
+
+
+ 
+
+
+ 
 
 
 
