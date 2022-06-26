@@ -42,50 +42,65 @@ var choicesListEl = document.createElement("ul");
     choicesListEl.setAttribute("class", "choices");
     choicesEl.appendChild(choicesListEl);
 
-    currentQuestion = 0;
-
 
 // Button that starts the timer, displays the first question and the first set of choices.
 startQuizEl.addEventListener("click", function() {
     document.querySelector(".intro-text").style.visibility = "hidden";
     startQuizEl.style.visibility = "hidden";
     startTimer();
-    displayQuestions();
-    displayChoices();
+    
+    
     
 })
 // When the any of the choices are clicked, the correct answer is displayed below them.
-choicesButtonEl.addEventListener("click", function () {
-    displayAnswer();
-})
+// choicesButtonEl.addEventListener("click", function () {
+//     displayAnswer();
+
+// })
+
+choicesButtonEl.addEventListener("click", displayAnswer)
+
 
 
 // Incriments each question in the array of objects.
 var q = 0;
 function displayQuestions () {
     questionsEl.textContent = quizQuestions[q].question;
-    q++
-}
+    displayChoices();
+}   
 
 // Turns the choices from the array into an unordered list
 function displayChoices () {
 
-    for (i = 0; i < quizQuestions[0].choices.length; i++){
+    for (i = 0; i < quizQuestions[q].choices.length; i++){
         var li = document.createElement("li");
-        li.textContent = quizQuestions[0].choices[i];
+        li.textContent = quizQuestions[q].choices[i];
         li.id = i
         choicesListEl.appendChild(li);
+        
     }
+    q++;
 }
 
 // Takes answer from the array of objects and places it as a paragraph below the unordered list of choices.
- function displayAnswer () {
+ function displayAnswer (event) {
+    console.log(event.target.textContent)
     var p = document.createElement("p");
-    p.textContent = quizQuestions[0].answer;
+    if (quizQuestions[q].answer === event.target.textContent) {
+        p.textContent = "Correct"
+    } else {
+        p.textContent = "Incorrect";
+    }
+    
+    
     p.id = i
     answerEl.appendChild(p);
+    displayQuestions();
  }
- 
+
+
+
+
  
 // Styling for the li
 // Click one of the buttons
@@ -97,6 +112,7 @@ var quizTime;
 secondsElapsed = 0;
 
 function startTimer() {
+    
     timerEl.textContent = startTime;
     quizTime = setInterval(function () {
         if (startTime > 0){
@@ -106,18 +122,15 @@ function startTimer() {
             endQuiz()
         }
     }, 1000);
+
+    displayQuestions();
 }
 
 function endQuiz(){
     timerEl.textContent = "GAME OVER!"
+
+    
 }
-
-
-
-
-
-
-
 
 
 
