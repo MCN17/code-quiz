@@ -80,7 +80,6 @@ function displayChoices () {
         
     }
     q++;
-
 }
 
 // Takes answer from the array of objects and places it as a paragraph below the unordered list of choices.
@@ -91,6 +90,7 @@ function displayChoices () {
         p.textContent = "Correct"
     } else {
         p.textContent = "Incorrect";
+        startTime -= 8;
     }
     p.id = i
     answerEl.appendChild(p);
@@ -99,11 +99,10 @@ function displayChoices () {
         removeChoices();
         displayQuestions();
     }, 2000);
-
-    
-
     
  }
+
+
 
  // Removes last set of choices/display of "Correct/Incorrect"
 
