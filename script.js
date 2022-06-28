@@ -1,4 +1,5 @@
 // Array of the questions, choices, and answers for the quiz.
+
 var quizQuestions = [
     {
         question: "What method would you use to create a DOM object Element?", 
@@ -36,6 +37,7 @@ var introTextEl = document.querySelector(".intro-text");
 var questionsEl = document.querySelector(".questions");
 var choicesEl = document.querySelector(".choices");
 var answerEl = document.querySelector(".answer")
+var highScoresEl = document.querySelector(".highScoresList");
 var timerEl = document.querySelector(".timer");
 
 var choicesListEl = document.createElement("ul");
@@ -43,15 +45,32 @@ var choicesListEl = document.createElement("ul");
     choicesEl.appendChild(choicesListEl);
 
 
+
+
 // Button that starts the timer, displays the first question and the first set of choices.
+
 startQuizEl.addEventListener("click", function() {
     document.querySelector(".intro-text").style.visibility = "hidden";
     startQuizEl.style.visibility = "hidden";
     startTimer();
     
-    
+})
+
+// Button that brings you to a list of High Scores
+
+highScoresButtonEl.addEventListener("click", function() {
+    document.querySelector(".intro-text").style.visibility = "hidden";
+
+// When high score button is clicked h3 and ol are created
+
+    var highScoresTitleEl = document.createElement("h3")
+    var highScoresListEl = document.createElement("ol");
+    highScoresTitleEl.setAttribute("class", ".highScoresList");
+    highScoresEl.append(highScoresTitleEl, highScoresListEl);
+    highScoresTitleEl.textContent = "High Scores";
     
 })
+
 // When the any of the choices are clicked, the correct answer is displayed below them.
 // choicesButtonEl.addEventListener("click", function () {
 //     displayAnswer();
@@ -64,6 +83,7 @@ choicesButtonEl.addEventListener("click", displayAnswer);
 
 
 // Incriments each question in the array of objects.
+
 var q = 0;
 function displayQuestions () {
     questionsEl.textContent = quizQuestions[q].question;
@@ -77,17 +97,19 @@ function displayChoices () {
         li.textContent = quizQuestions[q].choices[i];
         li.id = i
         choicesListEl.appendChild(li);
-        
     }
     q++;
 }
 
+currentQuestion = 0;
+
 // Takes answer from the array of objects and places it as a paragraph below the unordered list of choices.
+
  function displayAnswer (event) {
     console.log(event.target.textContent)
     var p = document.createElement("p");
-    if (quizQuestions[0].answer === event.target.textContent) {
-        p.textContent = "Correct"
+    if (quizQuestions[currentQuestion].answer === event.target.textContent) {
+        p.textContent = "Correct";
     } else {
         p.textContent = "Incorrect";
         startTime -= 8;
@@ -99,6 +121,8 @@ function displayChoices () {
         removeChoices();
         displayQuestions();
     }, 2000);
+
+    currentQuestion++;
     
  }
 
@@ -107,37 +131,25 @@ function displayChoices () {
  // Removes last set of choices/display of "Correct/Incorrect"
 
  function removeChoices () {
-    var choicesEl = document.querySelector(".choices");
-    choicesEl.remove();
+    choicesListEl.remove();
     removeAnswer();
 
  }
 
 
  // Removes display of "Correct/Incorrect" from last question
+
  function removeAnswer () {
-    var answerEl = document.querySelector(".answer")
     answerEl.remove();
+
  }
 
 
- 
-
-
- 
-
-
-
-
- 
-// Styling for the li
-// Click one of the buttons
-// , the answer comes up and goes to next question
-
-
-var startTime = 75;
+ var startTime = 75;
 var quizTime;
 secondsElapsed = 0;
+
+// Once Quiz button is clicked timer starts and 8 seconds is deducted if user chooses incorrectly
 
 function startTimer() {
     
@@ -156,9 +168,25 @@ function startTimer() {
 
 function endQuiz(){
     timerEl.textContent = "GAME OVER!"
-
     
 }
+
+
+
+ 
+
+
+ 
+
+
+
+
+ 
+// Styling for the li
+// Click one of the buttons
+// , the answer comes up and goes to next question
+
+
 
 
 

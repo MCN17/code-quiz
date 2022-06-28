@@ -89,3 +89,8 @@ button {
     font-weight: bold;
     background-color: darkgray;
 }
+
+h3 {
+    font-size: 25px;
+    font-weight: bold;
+}
