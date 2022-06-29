@@ -25,7 +25,8 @@ var quizQuestions = [
         question: "Using the word 'break' will stop the code execution inside the switch block.", 
         choices: ["True", "False"], 
         answer: "True"
-    }
+    },
+    
 ];
 
 // Buttons
@@ -86,8 +87,13 @@ choicesButtonEl.addEventListener("click", displayAnswer);
 
 var q = 0;
 function displayQuestions () {
+    if (q < quizQuestions.length){
     questionsEl.textContent = quizQuestions[q].question;
     displayChoices();
+}else{
+    endQuiz()
+}
+    // End quizz
 }   
 
 // Turns the choices from the array into an unordered list
@@ -101,26 +107,41 @@ function displayChoices () {
     q++;
 }
 
+// Displays the questions from the quizQuestions array
+
+function displayQuizQuestions() {
+    questionsEl.textContent = quizQuestions[q].question;
+    for (i = 0; i < quizQuestions[q].choices.length; i++){
+        var li = document.createElement("li");
+        li.textContent = quizQuestions[q].choices[i];
+        li.id = i
+        choicesListEl.appendChild(li);
+        li.addEventListener("click", displayAnswer)
+    }
+    q++;
+}
+
 currentQuestion = 0;
 
 // Takes answer from the array of objects and places it as a paragraph below the unordered list of choices.
 
  function displayAnswer (event) {
     console.log(event.target.textContent)
+    console.log(quizQuestions[currentQuestion].answer)
     var p = document.createElement("p");
     if (quizQuestions[currentQuestion].answer === event.target.textContent) {
-        p.textContent = "Correct";
+       p.textContent = "Correct";
     } else {
         p.textContent = "Incorrect";
         startTime -= 8;
     }
     p.id = i
-    answerEl.appendChild(p);
+    answerEl.appendChild(p)
 
     setTimeout (function () {
         removeChoices();
         displayQuestions();
-    }, 2000);
+    }, 1000);
 
     currentQuestion++;
     
@@ -131,7 +152,7 @@ currentQuestion = 0;
  // Removes last set of choices/display of "Correct/Incorrect"
 
  function removeChoices () {
-    choicesListEl.remove();
+    choicesListEl.innerHTML = ``;
     removeAnswer();
 
  }
@@ -140,7 +161,7 @@ currentQuestion = 0;
  // Removes display of "Correct/Incorrect" from last question
 
  function removeAnswer () {
-    answerEl.remove();
+    answerEl.innerHTML = "";
 
  }
 
@@ -159,7 +180,8 @@ function startTimer() {
         startTime--;
         timerEl.textContent = startTime;
         } else {
-            endQuiz()
+        timerEl.textContent = "GAME OVER!"
+        return endQuiz()
         }
     }, 1000);
 
@@ -167,21 +189,21 @@ function startTimer() {
 }
 
 function endQuiz(){
-    timerEl.textContent = "GAME OVER!"
-    
+    startTime = 0
 }
 
 
 
  
 
-
+ // 1 to 1
  
+// a function to trigger the next step
 
+// A (Wrong) -> Incorrect - Next question
+//
+// B (Right) -> Correct - Next Question
 
-
-
- 
 // Styling for the li
 // Click one of the buttons
 // , the answer comes up and goes to next question
