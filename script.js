@@ -91,7 +91,7 @@ function displayQuestions () {
     if (q < quizQuestions.length){
     questionsEl.textContent = quizQuestions[q].question;
     displayChoices();
-}else{
+}else {
     return endQuiz()
  }
 }   
@@ -168,9 +168,9 @@ currentQuestion = 0;
 
  var startTime = 75;
 var quizTime;
-secondsElapsed = 0;
 
 // Once Quiz button is clicked timer starts and 8 seconds is deducted if user chooses incorrectly
+// Once "GAME OVER!" appears a form is displayed for user to enter their name
 
 function startTimer() {
     
@@ -180,8 +180,11 @@ function startTimer() {
         startTime--;
         timerEl.textContent = startTime;
         } else {
+        clearInterval(quizTime);
         timerEl.textContent = "GAME OVER!"
-        return endQuiz();
+        endQuiz();
+        enterName();
+        
         }
     }, 1000);
 
@@ -200,7 +203,7 @@ function endQuiz(){
 
 function enterName () {
     var enterNameEl = document.createElement("p");
-    enterNameEl.textContent = "Please Enter your name.";
+    enterNameEl.textContent = "Please enter your name.";
     var formInputEl = document.createElement("form");
     var formLabelEl = document.createElement("label");
     var inputEl = document.createElement("input");
@@ -212,13 +215,17 @@ function enterName () {
 
 
 
-// var highScoresTitleEl = document.createElement("h3")
-// var highScoresListEl = document.createElement("ol");
-// highScoresTitleEl.setAttribute("class", ".highScoresList");
-// highScoresEl.append(highScoresTitleEl, highScoresListEl);
-// highScoresTitleEl.textContent = "High Scores";
 
- 
+
+
+
+
+
+
+
+
+
+
 
  // 1 to 1
  
