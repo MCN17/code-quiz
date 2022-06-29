@@ -39,6 +39,7 @@ var questionsEl = document.querySelector(".questions");
 var choicesEl = document.querySelector(".choices");
 var answerEl = document.querySelector(".answer")
 var highScoresEl = document.querySelector(".highScoresList");
+var formEl = document.querySelector(".form");
 var timerEl = document.querySelector(".timer");
 
 var choicesListEl = document.createElement("ul");
@@ -91,9 +92,8 @@ function displayQuestions () {
     questionsEl.textContent = quizQuestions[q].question;
     displayChoices();
 }else{
-    endQuiz()
-}
-    // End quizz
+    return endQuiz()
+ }
 }   
 
 // Turns the choices from the array into an unordered list
@@ -181,18 +181,42 @@ function startTimer() {
         timerEl.textContent = startTime;
         } else {
         timerEl.textContent = "GAME OVER!"
-        return endQuiz()
+        return endQuiz();
         }
     }, 1000);
 
     displayQuestions();
 }
 
+// Ends quiz 
+
 function endQuiz(){
-    startTime = 0
+    startTime = 0;
+    questionsEl.innerHTML = "";
+    console.log(endQuiz);
+}
+
+// Brings up a form for user to enter name
+
+function enterName () {
+    var enterNameEl = document.createElement("p");
+    enterNameEl.textContent = "Please Enter your name.";
+    var formInputEl = document.createElement("form");
+    var formLabelEl = document.createElement("label");
+    var inputEl = document.createElement("input");
+    formLabelEl.textContent = "Name:"
+    formEl.append(enterNameEl, formInputEl, formLabelEl, inputEl);
+
 }
 
 
+
+
+// var highScoresTitleEl = document.createElement("h3")
+// var highScoresListEl = document.createElement("ol");
+// highScoresTitleEl.setAttribute("class", ".highScoresList");
+// highScoresEl.append(highScoresTitleEl, highScoresListEl);
+// highScoresTitleEl.textContent = "High Scores";
 
  
 

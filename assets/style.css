@@ -94,3 +94,15 @@ h3 {
     font-size: 25px;
     font-weight: bold;
 }
+
+.form p, label {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.form input {
+    width: 30%;
+    padding: 10px;
+    border: solid 2px black;
+    border-radius: 25px;
+}
