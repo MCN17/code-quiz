@@ -33,6 +33,13 @@ var quizQuestions = [
 var highScoresButtonEl = document.querySelector(".high-scores");
 var startQuizEl = document.querySelector(".quiz-button");
 var choicesButtonEl = document.querySelector(".choices");
+var submitButtonEl = document.querySelector(".submitBtn")
+var highScoresListEl = document.querySelector(".highScoresList")
+var enterNameEl = document.querySelector(".highScoresList");
+var scoreDisplayEl = document.querySelector(".scoreDisplay");
+var userNameEl = document.querySelector(".userName");
+
+
 
 var introTextEl = document.querySelector(".intro-text");
 var questionsEl = document.querySelector(".questions");
@@ -46,8 +53,10 @@ var choicesListEl = document.createElement("ul");
     choicesListEl.setAttribute("class", "choices");
     choicesEl.appendChild(choicesListEl);
 
+var score = 0;
 
-
+document.querySelector(".highScoresList").style.visibility = "hidden"
+document.querySelector(".form").style.visibility = "hidden";
 
 // Button that starts the timer, displays the first question and the first set of choices.
 
@@ -62,22 +71,13 @@ startQuizEl.addEventListener("click", function() {
 
 highScoresButtonEl.addEventListener("click", function() {
     document.querySelector(".intro-text").style.visibility = "hidden";
+    document.querySelector(".quiz-button").style.visibility = "hidden";
+    document.querySelector(".highScoresList").style.visibility = "visible";
+    document.querySelector(".form").style.visibility = "hidden";
+    document.querySelector(".scoreDisplay").style.visibility = "hidden";    
+});
 
-// When high score button is clicked h3 and ol are created
 
-    var highScoresTitleEl = document.createElement("h3")
-    var highScoresListEl = document.createElement("ol");
-    highScoresTitleEl.setAttribute("class", ".highScoresList");
-    highScoresEl.append(highScoresTitleEl, highScoresListEl);
-    highScoresTitleEl.textContent = "High Scores";
-    
-})
-
-// When the any of the choices are clicked, the correct answer is displayed below them.
-// choicesButtonEl.addEventListener("click", function () {
-//     displayAnswer();
-
-// })
 
 
 
@@ -143,6 +143,8 @@ currentQuestion = 0;
         displayQuestions();
     }, 1000);
 
+    score = startTime;
+
     currentQuestion++;
     
  }
@@ -181,7 +183,7 @@ function startTimer() {
         timerEl.textContent = startTime;
         } else {
         clearInterval(quizTime);
-        timerEl.textContent = "GAME OVER!"
+        //timerEl.textContent = "GAME OVER!"
         endQuiz();
         enterName();
         
@@ -202,28 +204,108 @@ function endQuiz(){
 // Brings up a form for user to enter name
 
 function enterName () {
-    var enterNameEl = document.createElement("p");
-    enterNameEl.textContent = "Please enter your name.";
-    var formInputEl = document.createElement("form");
-    var formLabelEl = document.createElement("label");
-    var inputEl = document.createElement("input");
-    formLabelEl.textContent = "Name:"
-    formEl.append(enterNameEl, formInputEl, formLabelEl, inputEl);
+    document.querySelector(".scoreDisplay").style.visibility = "visible";
+    document.querySelector(".form").style.visibility = "visible";
+    scoreDisplayEl.textContent = `Your score is ${score}. Please enter your name.`;
 
-}
+    var userInput = document.querySelector(".userInput");
+    var submitBtn = document.querySelector(".submitBtn");
+    var displayUserName = document.querySelector(".userName");
 
+    
+    function submitUserName () {
+        displayUserName.textContent = `Name: ${userInput.value}   Score: ${score}`;
+        //displayUserName.textContent = userInput.value;
+        
+    }
 
-
-
-
-
-
-
-
+    submitBtn.addEventListener("click", submitUserName);
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+// When high score button is clicked h3 and ol are created
+
+    // var highScoresTitleEl = document.createElement("h3")
+    // var highScoresListEl = document.createElement("ol");
+    // highScoresTitleEl.setAttribute("class", ".highScoresList");
+    // highScoresEl.append(highScoresTitleEl, highScoresListEl);
+    // highScoresTitleEl.textContent = "High Scores";
+
+// When the any of the choices are clicked, the correct answer is displayed below them.
+// choicesButtonEl.addEventListener("click", function () {
+//     displayAnswer();
+
+// })
+
+
+
+    // var highScoresList = [];
+    // userNameEl.innerHTML = "";
+
+    // for (let i = 0; i > highScoresList.length; i++) {
+    //     let li = document.createElement("li");
+    //     li.textContent = `${highScoresList[i].userInput}: ${highScoresList[i].score}`;
+    //     userNameEl.append(li);
+        
+    // }
+
+
+    // var formInputEl = document.createElement("form");
+    // var formLabelEl = document.createElement("label");
+    // var inputEl = document.createElement("input");
+    // inputEl.setAttribute("type", "text")
+    // inputEl.setAttribute("class", "userInput")
+
+
+    
+
+//     formLabelEl.textContent = "Name:"
+//     formEl.append(enterNameEl, formInputEl, formLabelEl, inputEl);
+
+//     submitButtonEl.style.visibility = "visible";
+
+ }
+
+
+
+// function addName () {
+//     var userInputEl = document.createElement("li");
+//     userInputEl.setAttribute("id", "userInput");
+//     userInputEl.setAttribute("type", "text")
+//     userInputEl.setAttribute("value", "mcn")
+//     highScoresListEl.append(userInputEl)
+
+//    highScoresListEl.innerHTML = userInputEl.value
+
+// }
+
+// submitButtonEl.addEventListener("click", addName);
+
+
+
+// var highScoresTitleEl = document.createElement("h3")
+// var highScoresListEl = document.createElement("ol");
+// highScoresTitleEl.setAttribute("class", ".highScoresList");
+// highScoresEl.append(highScoresTitleEl, highScoresListEl);
+// highScoresTitleEl.textContent = "High Scores";
 
 
 
