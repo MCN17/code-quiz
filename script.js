@@ -34,6 +34,8 @@ var highScoresButtonEl = document.querySelector(".high-scores");
 var startQuizEl = document.querySelector(".quiz-button");
 var choicesButtonEl = document.querySelector(".choices");
 var submitButtonEl = document.querySelector(".submitBtn")
+var tryAgainButtonEl = document.querySelector(".tryAgainBtn")
+
 var highScoresListEl = document.querySelector(".highScoresList")
 var enterNameEl = document.querySelector(".highScoresList");
 var scoreDisplayEl = document.querySelector(".scoreDisplay");
@@ -57,14 +59,25 @@ var score = 0;
 
 document.querySelector(".highScoresList").style.visibility = "hidden"
 document.querySelector(".form").style.visibility = "hidden";
+document.querySelector(".tryAgainBtn").style.visibility = "hidden";
 
 // Button that starts the timer, displays the first question and the first set of choices.
 
 startQuizEl.addEventListener("click", function() {
     document.querySelector(".intro-text").style.visibility = "hidden";
     startQuizEl.style.visibility = "hidden";
+    document.querySelector(".tryAgainBtn").style.visibility = "hidden";
     startTimer();
-    
+})
+
+tryAgainButtonEl.addEventListener("click", function () {
+    document.querySelector(".intro-text").style.visibility = "visible";
+    document.querySelector(".quiz-button").style.visibility = "visible";
+    document.querySelector(".highScoresList").style.visibility = "hidden";
+    document.querySelector(".form").style.visibility = "hidden";
+    document.querySelector(".scoreDisplay").style.visibility="hidden";
+    startTime = 75;
+    timerEl.textContent = startTime;
 })
 
 // Button that brings you to a list of High Scores
@@ -212,32 +225,50 @@ function enterName () {
     var submitBtn = document.querySelector(".submitBtn");
     var displayUserName = document.querySelector(".userName");
 
-    
+
+    // Adds user name and score to high Scores List
+
+    userName = [];
+    var userInputValue = userInput.value
+    userName.push({Name: userInputValue, Score: score})
     function submitUserName () {
-        displayUserName.textContent = `Name: ${userInput.value}   Score: ${score}`;
+        displayUserName.textContent = [`Name: ${userInput.value}   Score: ${score}`];
         //displayUserName.textContent = userInput.value;
-        
+        document.querySelector(".tryAgainBtn").style.visibility = "visible";
     }
 
     submitBtn.addEventListener("click", submitUserName);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // Saves users Name and Score to Local Storage
     
+    storeScores();
+    function storeScores () {
+        localStorage.setItem("userName", JSON.stringify(userName));
+    }
+ };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  for (i = 0; i < userName.length; i++) {
+//     var displayUserName = document.createElement("li")
+//     userNameEl.append(displayUserName);
+// }
+
+
+
 
 
 
@@ -281,9 +312,6 @@ function enterName () {
 //     formEl.append(enterNameEl, formInputEl, formLabelEl, inputEl);
 
 //     submitButtonEl.style.visibility = "visible";
-
- }
-
 
 
 // function addName () {

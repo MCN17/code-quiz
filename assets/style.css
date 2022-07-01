@@ -38,7 +38,8 @@ main {
 
 .intro-text p {
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .intro-text h1 {
@@ -65,14 +66,20 @@ button {
 
 .quiz-content {
     text-align: center;
+    justify-content: center;
 }
+
 
 .choices ul li {
     font-size: 25px;
     font-weight: bold;
+    margin: 0 700px;
     padding: 5px;
     border: solid 2px black;
     border-radius: 25px;
+    text-align: center;
+    list-style: none;
+
 }
 
 .choices ul li:hover {
