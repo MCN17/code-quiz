@@ -88,7 +88,8 @@ highScoresButtonEl.addEventListener("click", function() {               // Need 
     document.querySelector(".quiz-button").style.visibility = "hidden";
     document.querySelector(".highScoresList").style.visibility = "visible";
     document.querySelector(".form").style.visibility = "hidden";
-    document.querySelector(".scoreDisplay").style.visibility = "hidden";  
+    document.querySelector(".scoreDisplay").style.visibility = "hidden";
+    document.querySelector(".tryAgainBtn").style.visibility = "visible";
       
 });
 
@@ -235,6 +236,7 @@ function enterName () {
     function submitUserName () {
         displayUserName.textContent = [`Name: ${userInput.value}   Score: ${score}`]; // score goes to local storage 
         //displayUserName.textContent = userInput.value;
+        document.querySelector(".highScoresList").style.visibility = "visible"
         document.querySelector(".tryAgainBtn").style.visibility = "visible";
         
     }
@@ -246,7 +248,7 @@ function enterName () {
     storeScores();
     function storeScores () {
         localStorage.setItem("userName", JSON.stringify(userName));
-        userInput.value = localStorage.getItem(JSON.parse("userName"));
+        // userInput.value = localStorage.getItem(JSON.parse("userName"));
     }
  };
 

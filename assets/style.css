@@ -131,5 +131,23 @@ h3 {
     justify-content: center;
 }
 
+.highScoresList ol {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.submitBtn {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.submitBtn:hover {
+    background-color: darkgray;
+}
+
+.tryAgainBtn:hover {
+    background-color: darkgray;
+}
+
 /* Quiz Content Section Style End */
 
