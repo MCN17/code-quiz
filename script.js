@@ -51,7 +51,7 @@ var highScoresEl = document.querySelector(".highScoresList");
 var formEl = document.querySelector(".form");
 var timerEl = document.querySelector(".timer");
 
-var choicesListEl = document.createElement("ul");
+var choicesListEl = document.createElement("ul"); // Need to do something different here becuase ul is a block element so it's always going to take up 100% width.
     choicesListEl.setAttribute("class", "choices");
     choicesEl.appendChild(choicesListEl);
 
@@ -83,12 +83,13 @@ tryAgainButtonEl.addEventListener("click", function () {
 
 // Button that brings you to a list of High Scores
 
-highScoresButtonEl.addEventListener("click", function() {
+highScoresButtonEl.addEventListener("click", function() {               // Need to be able to save keep adding to the list so your're able to see all of your recent high scores.
     document.querySelector(".intro-text").style.visibility = "hidden";
     document.querySelector(".quiz-button").style.visibility = "hidden";
     document.querySelector(".highScoresList").style.visibility = "visible";
     document.querySelector(".form").style.visibility = "hidden";
-    document.querySelector(".scoreDisplay").style.visibility = "hidden";    
+    document.querySelector(".scoreDisplay").style.visibility = "hidden";  
+      
 });
 
 
@@ -113,7 +114,7 @@ function displayQuestions () {
 // Turns the choices from the array into an unordered list
 function displayChoices () {
     for (i = 0; i < quizQuestions[q].choices.length; i++){
-        var li = document.createElement("li");
+        var li = document.createElement("li"); // change this to create a button at a later time for a better look
         li.textContent = quizQuestions[q].choices[i];
         li.id = i
         choicesListEl.appendChild(li);
@@ -122,11 +123,10 @@ function displayChoices () {
 }
 
 // Displays the questions from the quizQuestions array
-
 function displayQuizQuestions() {
     questionsEl.textContent = quizQuestions[q].question;
     for (i = 0; i < quizQuestions[q].choices.length; i++){
-        var li = document.createElement("li");
+        var li = document.createElement("li"); // change this to create a button at a later time for a better look
         li.textContent = quizQuestions[q].choices[i];
         li.id = i
         choicesListEl.appendChild(li);
@@ -233,9 +233,10 @@ function enterName () {
     var userInputValue = userInput.value
     userName.push({Name: userInputValue, Score: score})
     function submitUserName () {
-        displayUserName.textContent = [`Name: ${userInput.value}   Score: ${score}`];
+        displayUserName.textContent = [`Name: ${userInput.value}   Score: ${score}`]; // score goes to local storage 
         //displayUserName.textContent = userInput.value;
         document.querySelector(".tryAgainBtn").style.visibility = "visible";
+        
     }
 
     submitBtn.addEventListener("click", submitUserName);
@@ -245,11 +246,12 @@ function enterName () {
     storeScores();
     function storeScores () {
         localStorage.setItem("userName", JSON.stringify(userName));
+        userInput.value = localStorage.getItem(JSON.parse("userName"));
     }
  };
 
  // Reloads current page - purpose is to bring up the opening start quiz content
- 
+
  function reload () {
     window.location.reload("Refresh");
  }

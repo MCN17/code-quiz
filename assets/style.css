@@ -1,3 +1,5 @@
+/* Universal Selector */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,11 +10,13 @@ body {
     background-color: lightgray;
 }
 
+
+/* Header Style Start */
+
 header {
     padding: 10px;
     margin: 5px;
      background-color: darkgray;
-  
 }
 
 header ul {
@@ -30,6 +34,11 @@ header ul li {
     padding: 5 px 5px;
 }
 
+/* Header Style End */
+
+
+/* Main Style Start */
+
 main {
     display: flex;
     flex-wrap: wrap;
@@ -46,7 +55,10 @@ main {
     text-align: center;
     font-size: 35px;
 }
+/* Main Style End */
 
+
+/* Button Style Start */
 
 button {
     font-size: 25px;
@@ -63,7 +75,10 @@ button {
 .high-scores:hover {
     background-color: lightgray;
 }
+/* Button Style End */
 
+
+/* Quiz Content Section Style Start */
  .quiz-content {
     text-align: center;
     justify-content: center;
@@ -116,4 +131,5 @@ h3 {
     justify-content: center;
 }
 
+/* Quiz Content Section Style End */
 
