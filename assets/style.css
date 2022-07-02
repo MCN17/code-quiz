@@ -64,22 +64,19 @@ button {
     background-color: lightgray;
 }
 
-.quiz-content {
+ .quiz-content {
     text-align: center;
     justify-content: center;
 }
 
-
 .choices ul li {
+    display: flex;
     font-size: 25px;
     font-weight: bold;
-    margin: 0 700px;
     padding: 5px;
     border: solid 2px black;
     border-radius: 25px;
-    text-align: center;
-    list-style: none;
-
+    justify-content: center;
 }
 
 .choices ul li:hover {
@@ -108,7 +105,7 @@ h3 {
 }
 
 .form input {
-    width: 30%;
+    width: 10%;
     padding: 10px;
     border: solid 2px black;
     border-radius: 25px;
@@ -118,3 +115,5 @@ h3 {
     display: flex;
     justify-content: center;
 }
+
+

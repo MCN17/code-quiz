@@ -78,6 +78,7 @@ tryAgainButtonEl.addEventListener("click", function () {
     document.querySelector(".scoreDisplay").style.visibility="hidden";
     startTime = 75;
     timerEl.textContent = startTime;
+    reload();
 })
 
 // Button that brings you to a list of High Scores
@@ -246,6 +247,12 @@ function enterName () {
         localStorage.setItem("userName", JSON.stringify(userName));
     }
  };
+
+ // Reloads current page - purpose is to bring up the opening start quiz content
+ 
+ function reload () {
+    window.location.reload("Refresh");
+ }
 
 
 
