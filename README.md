@@ -1,12 +1,12 @@
 # Code Quiz
 
 ## Purpose
-To assess the knowledge a student has gained in this course so far and to help them prepare for any interviews they may have where their knowledge is tested by having to answer technical coding coding questions.
+To assess the knowledge a student has gained in this course so far and to help them prepare for any interviews they may have where their knowledge is tested by having to answer technical coding questions.
 
 ## Built With
 * HTML
 * CSS
-*JavaScript
+* JavaScript
 
 ## Website
 
