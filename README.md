@@ -9,6 +9,7 @@ To assess the knowledge a student has gained in this course so far and to help t
 * JavaScript
 
 ## Website
+https://mcn17.github.io/code-quiz/
 
 
 ![image](https://user-images.githubusercontent.com/104735194/177006981-d40bd0c9-c4ac-4ac2-9d36-1e30db2fc254.png)
