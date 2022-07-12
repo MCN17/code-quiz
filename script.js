@@ -83,7 +83,7 @@ tryAgainButtonEl.addEventListener("click", function () {
 
 // Button that brings you to a list of High Scores
 
-highScoresButtonEl.addEventListener("click", function() {               // Need to be able to save keep adding to the list so your're able to see all of your recent high scores.
+highScoresButtonEl.addEventListener("click", function() {               // Need to be able to save and keep adding to the list so your're able to see all of your recent high scores.
     document.querySelector(".intro-text").style.visibility = "hidden";
     document.querySelector(".quiz-button").style.visibility = "hidden";
     document.querySelector(".highScoresList").style.visibility = "visible";
@@ -234,7 +234,7 @@ function enterName () {
     var userInputValue = userInput.value
     userName.push({Name: userInputValue, Score: score})
     function submitUserName () {
-        displayUserName.textContent = [`Name: ${userInput.value}   Score: ${score}`]; // score goes to local storage 
+        displayUserName.textContent = [`Name: ${userInput.value}   Score: ${score}`]; // score goes to local storage but not name (only saves it as name="")
         //displayUserName.textContent = userInput.value;
         document.querySelector(".highScoresList").style.visibility = "visible"
         document.querySelector(".tryAgainBtn").style.visibility = "visible";
