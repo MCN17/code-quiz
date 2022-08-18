@@ -81,20 +81,23 @@ button {
 /* Quiz Content Section Style Start */
  .quiz-content {
     text-align: center;
-    justify-content: center;
 }
 
-.choices ul li {
-    display: flex;
+.choices {
+    align-items: center;
+}
+
+
+.choices button {
+    
     font-size: 25px;
     font-weight: bold;
     padding: 5px;
     border: solid 2px black;
     border-radius: 25px;
-    justify-content: center;
 }
 
-.choices ul li:hover {
+.choices button:hover {
     background-color: darkgray;
 }
 

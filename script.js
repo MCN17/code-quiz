@@ -51,8 +51,8 @@ var highScoresEl = document.querySelector(".highScoresList");
 var formEl = document.querySelector(".form");
 var timerEl = document.querySelector(".timer");
 
-var choicesListEl = document.createElement("ul"); // Need to do something different here becuase ul is a block element so it's always going to take up 100% width.
-    choicesListEl.setAttribute("class", "choices");
+var choicesListEl = document.createElement("div"); // Need to do something different here becuase ul is a block element so it's always going to take up 100% width.
+    choicesListEl.setAttribute("class", "newChoices");
     choicesEl.appendChild(choicesListEl);
 
 var score = 0;
@@ -115,10 +115,10 @@ function displayQuestions () {
 // Turns the choices from the array into an unordered list
 function displayChoices () {
     for (i = 0; i < quizQuestions[q].choices.length; i++){
-        var li = document.createElement("li"); // change this to create a button at a later time for a better look
-        li.textContent = quizQuestions[q].choices[i];
-        li.id = i
-        choicesListEl.appendChild(li);
+        var btn = document.createElement("button"); // change this to create a button at a later time for a better look
+        btn.textContent = quizQuestions[q].choices[i];
+        btn.id = i
+        choicesListEl.appendChild(btn);
     }
     q++;
 }
